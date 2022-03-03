@@ -1,13 +1,41 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card , Modal } from 'react-bootstrap'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import shopClose from '../Assets/closed.svg'
 import shopOpen from '../Assets/open.svg'
+import EditshopForm from './Forms/EditshopForm'
+
+const  MyVerticallyCenteredModal = (props) => {
+    return (
+      <Modal
+        {...props}
+        size="md"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Edit Shop Details
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <div className='signup-form w-100'>
+                    <EditshopForm id = {props.id} name = {props.name} category = {props.category} area = {props.area} opening = {props.opening} closing = {props.closing} onHide = {props.onHide} />
+        </div>
+        </Modal.Body>
+        {/* <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer> */}
+      </Modal>
+    );
+  }
 
 
 const ShopCard = props => {
     const [shopStatus, setShopStatus] = useState(shopOpen)
+    const [modalShow, setModalShow] = useState(false);
 
+   
 
     //THIS IS HOW YOU COMPARE TIME FROM A STRING COMING FROM BACKEND 
 
@@ -61,7 +89,9 @@ const ShopCard = props => {
 
                                 <Button variant="danger w-50 hover-delete shadow-none" style={{ marginRight: "1rem", fontSize: "1.3rem", fontWeight: "700", fontFamily: "sans-serif" }} onClick={() => { props.delete(props.id) }}><AiFillDelete className="pb-1 f-1" />Delete</Button>
 
-                                <Button variant="primary w-50 hover-edit shadow-none" style={{ fontSize: "1.3rem", fontWeight: "700", fontFamily: "sans-serif" }} ><AiFillEdit className="pb-1 f-1" />Edit</Button>
+                                <Button variant="primary w-50 hover-edit shadow-none" style={{ fontSize: "1.3rem", fontWeight: "700", fontFamily: "sans-serif" }} onClick={() => setModalShow(true)}><AiFillEdit className="pb-1 f-1" />Edit</Button>
+
+                                <MyVerticallyCenteredModal  id = {props.id} show={modalShow} onHide={() => setModalShow(false)} name = {props.name} category = {props.category} area = {props.location} opening = {props.opening} closing = {props.closing}/>
                             </div>
                         </div>
                         <div className="status-lp">

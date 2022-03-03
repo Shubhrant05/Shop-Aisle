@@ -5,6 +5,7 @@ import ShopCard from './ShopCard'
 // import Editshop from './Editshop'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import EditshopForm from './Forms/EditshopForm'
 
 const Content = () => {
     const [data,setData] = useState([])
@@ -42,10 +43,13 @@ const Content = () => {
         {
             data.map((shop) => {
                 return(
-                <ShopCard key = {shop._id} name={shop.name} category = {shop.category} location = {shop.area} status = {shop.status} id = {shop._id} delete = {deleteShop} opening = {shop.opening} closing = {shop.closing}/>
+                <ShopCard key = {shop._id} name={shop.name} category = {shop.category} location = {shop.area} status = {shop.status} id = {shop._id} delete = {deleteShop} opening = {shop.opening} closing = {shop.closing} />
                 )})
         }
 
+        <div style={{display:"none"}}>
+            <EditshopForm stateAccess = {setData}/>
+        </div>
 
 
     </div>

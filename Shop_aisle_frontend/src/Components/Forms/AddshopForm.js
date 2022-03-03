@@ -55,7 +55,7 @@ const AddshopForm = props => {
             {
                 formik => (
                     <>
-                        <div className='signup-head' style={{ color: "white" }}> Welcome to the <p style={{ color: "rgb(255,81,81)", display: "inline" }}>Aisle</p></div>
+                        <div className='signup-head' style={{ color: "white" }}>Add to the <p style={{ color: "rgb(255,81,81)", display: "inline" }}>Aisle</p></div>
                         
                         <Form method='POST'  className='form-input mt-4'>
                             <Inputfield placeholder = "Enter name of place" type = "text" name = "name" />

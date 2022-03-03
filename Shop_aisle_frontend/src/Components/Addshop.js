@@ -1,7 +1,7 @@
 import React from 'react'
 import newShop from '../Assets/newShop.jpg'
 import AddshopForm from './Forms/AddshopForm'
-const Signup = props => {
+const Addshop = props => {
     return (
         <div style={{background:"#242582"}}>
             <div className='signup-logo ml-2'>
@@ -19,4 +19,4 @@ const Signup = props => {
     )
 }
 
-export default Signup
+export default Addshop

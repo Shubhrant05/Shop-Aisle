@@ -8,6 +8,6 @@ router.get('/getShop', shopDB.getShops);
 
 router.delete('/deleteShop/:id', shopDB.deleteShops);
 
-router.patch('/editShop/:id', shopDB.editShops);
+router.put('/editShop/:id', shopDB.editShops);
 
 module.exports = router
