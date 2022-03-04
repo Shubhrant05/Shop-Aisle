@@ -18,14 +18,22 @@ const SignupForm = () => {
                 method: "post",
                 url: "http://localhost:5000/api/user/addUser",
                 data: values,
-              }).then(() => console.log("Signed-up")).catch(() => console.log("Error occured in sign-up"))
+              }).then((res) => {
+              
+                if(res.status === 200 ){
+                    navigate('/dashboard') 
+                }
+              
+              }).catch(() => {
+                  console.log("Error occured in sign-up")
+                  alert("We found user with same E-mail ID. Please login to continue")
+                  document.getElementById('reset').click() })
 
-            navigate('/dashboard')
 
     }
 
     const validate = Yup.object({
-        name:Yup.string().max(15,"Name must be less than or equal to 15 characters").required("It is a required field"),
+        name:Yup.string().max(25,"Name must be less than or equal to 25 characters").required("It is a required field"),
         email:Yup.string().email().required("It is a required field"),
         password:Yup.string().min(6,"Password must be of minimum 6 characters").required("It is a required field"),
         confirmPassword:Yup.string().oneOf([Yup.ref('password'),null],"Password must match").required("It is a required field")
@@ -59,7 +67,7 @@ const SignupForm = () => {
                             <div className='d-flex justify-content-between mt-5'>
                                 <Button style={{color:"white",background:"rgb(255,81,81)",fontSize:"1.25rem",fontFamily:"sans-serif",margin:"auto"}} className="w-25 shadow-none mt-2" type='submit'>Register</Button>
                                 
-                                <Button style={{color:"black",background:"white",fontSize:"1.25rem",fontFamily:"sans-serif",margin:"auto"}} className="w-25 shadow-none mt-2" type='reset' >Reset</Button>
+                                <Button style={{color:"black",background:"white",fontSize:"1.25rem",fontFamily:"sans-serif",margin:"auto"}} className="w-25 shadow-none mt-2" type='reset' id='reset'>Reset</Button>
                             </div>
                             <a href='/dashboard' className="mt-3" style={{fontSize:"1.2rem",color:"rgb(255,81,81)",textAlign:"center"}}>Already a member? Log-in</a>
                         </Form>

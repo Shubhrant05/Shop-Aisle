@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const { findById } = require('./models/Shop-model');
 
 const Shop = require('./models/Shop-model')
@@ -7,9 +8,9 @@ const User = require('./models/User-model')
 mongoose.connect(
   'mongodb://localhost:27017/shop_aisle?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
 ).then(() => {
-    console.log('Connected to database!')
+  console.log('Connected to database!')
 }).catch(() => {
-    console.log('Connection failed!')
+  console.log('Connection failed!')
 });
 
 const addShop = async (req, res, next) => {
@@ -20,13 +21,13 @@ const addShop = async (req, res, next) => {
     opening: req.body.opening,
     closing: req.body.closing
   });
-  
+
   const result = await newShop.save();
   res.json(result);
 };
 
-const editShops = async(req,res,next) => {
-  const updatedShop = Shop.findByIdAndUpdate(req.params.id,{
+const editShops = async (req, res, next) => {
+  const updatedShop = Shop.findByIdAndUpdate(req.params.id, {
     name: req.body.name || Shop.findById(req.params.id).name,
     area: req.body.area || Shop.findById(req.params.id).area,
     category: req.body.category || Shop.findById(req.params.id).category,
@@ -43,26 +44,39 @@ const getShops = async (req, res, next) => {
   res.json(shops);
 }
 
-const deleteShops = async(req,res,next) => {
-    const newArr = await Shop.findByIdAndDelete(req.params.id)
-    res.json(newArr)
+const deleteShops = async (req, res, next) => {
+  const newArr = await Shop.findByIdAndDelete(req.params.id)
+  res.json(newArr)
 
 }
 
 const addUser = async (req, res, next) => {
-  const newUser = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-  });
-  
-  const result = await newUser.save();
-  
   try {
-    res.json(result);
-  } catch (error) {
+    const newUser =   new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    const result = await newUser.save(function (err) {
+      if (err)
+      {
+        console.log(err)
+        res.status(420)
+        res.json("Error occured in sign up")
+      }
+      else{
+        res.json('hello user')
+      }
+    });
+
+
+  } catch (err) {
+    console.log(err)
     res.json("Error occured in adding user")
+
   }
+ 
 };
 
 exports.addShop = addShop;

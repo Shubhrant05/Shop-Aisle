@@ -9,37 +9,36 @@ import { useNavigate } from 'react-router-dom'
 
 
 const EditshopForm = ({id,stateAccess,onHide,name,category,closing,area,opening}) => {
-   console.log(id,'hello',stateAccess)
     const navigate = useNavigate()
     const submitHandler = (values,action) => {
-
+        
             axios({
                 method: "put",
                 url:`http://localhost:5000/api/shop/editShop/${id}`,
                 data: values,
-              }).then(() => console.log("Shop-added")).catch(() => console.log("Error occured in editing shop"))
-              
+              }).then(() => console.log("Shop-edited")).catch(() => console.log("Error occured in editing shop"))
+                 
          navigate('/dashboard')        
 
     }
     useEffect(() => {
         axios.get("http://localhost:5000/api/shop/getShop").then(
             (response) =>{
-                console.log(response)
+                // console.log(response)
                 stateAccess(response.data)
             }
         )
-    })
+    },[stateAccess])
     
 
     
 
     const validate = Yup.object({
-        name:Yup.string(),
-        area:Yup.string(),
-        category:Yup.string(),
-        opening:Yup.string(),
-        closing:Yup.string()
+        name:Yup.string().required("This field is mandatory"),
+        area:Yup.string().required("This field is mandatory"),
+        category:Yup.string().required("This field is mandatory"),
+        opening:Yup.string().required("This field is mandatory"),
+        closing:Yup.string().required("This field is mandatory")
     })
    
     return (
@@ -61,7 +60,6 @@ const EditshopForm = ({id,stateAccess,onHide,name,category,closing,area,opening}
             {
                 formik => (
                     <>
-                    {console.log(formik.values)}
                         <div className='signup-head' style={{ color: "white" }}> Make your <p style={{ color: "rgb(255,81,81)", display: "inline" }}>Aisle</p> better</div>
                         
                         <Form method='PUT'  className='form-input mt-4'>

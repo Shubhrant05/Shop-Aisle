@@ -74,10 +74,9 @@ const ShopCard = props => {
                                 </div>
                                 <div>
                                     <Card.Subtitle className="mt-3 text-muted" style={{ fontSize: "1.3rem" }}>Working Hours </Card.Subtitle><div className="Shop-type">{
-                                        open[0] < 12 ? props.opening + "AM - " : (parseInt(props.opening) - 12).toString() + ":" + open[1] + "PM - "}
-                                        {close[0] < 12 ? props.closimg + "AM" : (parseInt(props.closing) - 12).toString() + ":" + close[1] + "PM"}
+                                        open[0] <= 12 ? props.opening + "AM - " : (parseInt(props.opening) - 12).toString() + ":" + open[1] + "PM - "}
+                                        {close[0] <= 12 ? props.closimg + "AM" : (parseInt(props.closing) - 12).toString() + ":" + close[1] + "PM"}
                                     </div>
-                                    {console.log(props.opening, props.closing)}
                                 </div>
                             </div>
 

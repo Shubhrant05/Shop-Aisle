@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import EditshopForm from './Forms/EditshopForm'
 
+
 const Content = () => {
     const [data,setData] = useState([])
     const navigate = useNavigate()
@@ -19,6 +20,9 @@ const Content = () => {
         )
     },[])
     
+    const stateAccess = (dataVal) => {
+        setData(dataVal)
+    }
     const deleteShop = (id) =>{
         axios.delete(`http://localhost:5000/api/shop/deleteShop/${id}`).then((response) => {
             if(response.status === 200){
@@ -48,7 +52,7 @@ const Content = () => {
         }
 
         <div style={{display:"none"}}>
-            <EditshopForm stateAccess = {setData}/>
+            <EditshopForm stateAccess = {stateAccess}/>
         </div>
 
 
