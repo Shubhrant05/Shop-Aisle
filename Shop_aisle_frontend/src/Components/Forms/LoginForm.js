@@ -8,7 +8,7 @@ import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 
-const SignupForm = () => {
+const LoginForm = () => {
 
     const navigate = useNavigate()
 
@@ -16,29 +16,30 @@ const SignupForm = () => {
 
             axios({
                 method: "post",
-                url: "http://localhost:5000/api/user/addUser",
+                url: "http://localhost:5000/api/user/login",
                 data: values,
               }).then((res) => {
               
                 if(res.status === 200 ){
+                    console.log(res)
                     navigate('/dashboard') 
                 }
-              
-              }).catch(() => {
-                  console.log("Error occured in sign-up")
-                  alert("We found user with same E-mail ID. Please login to continue")
-                //   document.getElementById('reset').click() 
-                navigate('/login')
-            })
+               else{
+                   console.log("error")
+               }
+              }).catch((res) => {
+                  console.log(res)
+                  alert("Entered email or password is wrong")
+                })
 
 
     }
 
     const validate = Yup.object({
-        name:Yup.string().max(25,"Name must be less than or equal to 25 characters").required("It is a required field"),
+
         email:Yup.string().email().required("It is a required field"),
         password:Yup.string().min(6,"Password must be of minimum 6 characters").required("It is a required field"),
-        confirmPassword:Yup.string().oneOf([Yup.ref('password'),null],"Password must match").required("It is a required field")
+
     })
     return (
 
@@ -46,10 +47,8 @@ const SignupForm = () => {
 
         <Formik
         initialValues={{
-            name: "",
             email:"",
-            password:"",
-            confirmPassword:""
+            password:""
         }}
         
         validationSchema={validate}
@@ -58,20 +57,18 @@ const SignupForm = () => {
             {
                 formik => (
                     <>
-                        <div className='signup-head' style={{ color: "white" }}> Welcome to the <p style={{ color: "rgb(255,81,81)", display: "inline" }}>Aisle</p></div>
+                        <div className='signup-head' style={{ color: "white" }}> Walk-in the <p style={{ color: "rgb(255,81,81)", display: "inline" }}>Aisle</p></div>
                         
                         <Form method='POST'  className='form-input mt-4'>
-                            <Inputfield placeholder = "Enter Name" type = "text" name = "name" />
                             <Inputfield placeholder = "Enter E-mail" type = "email" name = "email"/>
                             <Inputfield placeholder = "Enter Password" type = "password" name = "password"/>
-                            <Inputfield placeholder = "Confirm Password" type = "password" name = "confirmPassword"/>
 
                             <div className='d-flex justify-content-between mt-5'>
-                                <Button style={{color:"white",background:"rgb(255,81,81)",fontSize:"1.25rem",fontFamily:"sans-serif",margin:"auto"}} className="w-25 shadow-none mt-2" type='submit'>Register</Button>
+                                <Button style={{color:"white",background:"rgb(255,81,81)",fontSize:"1.25rem",fontFamily:"sans-serif",margin:"auto"}} className="w-25 shadow-none mt-2" type='submit'>Login</Button>
                                 
                                 <Button style={{color:"black",background:"white",fontSize:"1.25rem",fontFamily:"sans-serif",margin:"auto"}} className="w-25 shadow-none mt-2" type='reset' id='reset'>Reset</Button>
                             </div>
-                            <a href='/login' className="mt-3" style={{fontSize:"1.2rem",color:"rgb(255,81,81)",textAlign:"center"}} >Already a member? Log-in</a>
+
                         </Form>
                     
                     </>
@@ -83,4 +80,4 @@ const SignupForm = () => {
     )
 }
 
-export default SignupForm
+export default LoginForm

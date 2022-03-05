@@ -5,12 +5,14 @@ import HeroSection from './Components/HeroSection';
 import Navigation from './Components/Navigation';
 import {Routes, Route } from 'react-router-dom';
 import Signup from './Components/Signup';
+import Login from './Components/Login';
 import Addshop from './Components/Addshop'
 
 function App() {
   return (
     <Routes>
       <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login/>} />
 
       <Route path="/dashboard"
         element={

@@ -4,4 +4,6 @@ const shopDB = require('../mongoose');
 
 router.post('/addUser', shopDB.addUser);
 
+router.post('/login', shopDB.loginCheck);
+
 module.exports = router

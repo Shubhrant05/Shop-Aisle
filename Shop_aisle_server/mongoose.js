@@ -50,6 +50,34 @@ const deleteShops = async (req, res, next) => {
 
 }
 
+const loginCheck = async (req,res,next) => {
+  try {
+    const userLogin = {
+      email: req.body.email,
+      password: req.body.password
+    }
+
+    const result = await User.find({email:userLogin.email})
+
+    if(result.length !== 0){
+      if(userLogin.password === result[0].password ){
+        res.json("logged-in")
+      }
+      else{
+        res.status(400)
+        res.json("Password doesn't match")
+      }
+    }
+
+    else{
+      res.status(400)
+      res.json("No user with this email exists")
+    }
+  } catch (error) {
+    res.status(400)
+    res.json("No user with this email exists")
+  }
+}
 const addUser = async (req, res, next) => {
   try {
     const newUser =   new User({
@@ -84,3 +112,4 @@ exports.getShops = getShops;
 exports.deleteShops = deleteShops;
 exports.addUser = addUser;
 exports.editShops = editShops;
+exports.loginCheck = loginCheck;

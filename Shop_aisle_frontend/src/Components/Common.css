@@ -152,6 +152,9 @@
     }
 
     .signup{
+      display: flex;
+      height: 90vh;
+      justify-content: center;
       width: 50%;
       margin-top: -5rem;
       margin-left: 0;
