@@ -1,41 +1,40 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Card , Modal } from 'react-bootstrap'
+import { Button, Card, Modal } from 'react-bootstrap'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai'
 import shopClose from '../Assets/closed.svg'
 import shopOpen from '../Assets/open.svg'
 import EditshopForm from './Forms/EditshopForm'
 
-const  MyVerticallyCenteredModal = (props) => {
+const MyVerticallyCenteredModal = (props) => {
     return (
-      <Modal
-        {...props}
-        size="md"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Edit Shop Details
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <div className='signup-form w-100'>
-                    <EditshopForm id = {props.id} name = {props.name} category = {props.category} area = {props.area} opening = {props.opening} closing = {props.closing} onHide = {props.onHide} />
-        </div>
-        </Modal.Body>
-        {/* <Modal.Footer>
+        <Modal
+            {...props}
+            size="md"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton >
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Edit Shop Details
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className='signup-form w-100'>
+                    <EditshopForm id={props.id} name={props.name} category={props.category} area={props.area} opening={props.opening} closing={props.closing} onHide={props.onHide} />
+                </div>
+            </Modal.Body>
+            {/* <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer> */}
-      </Modal>
+        </Modal>
     );
-  }
+}
 
 
 const ShopCard = props => {
     const [shopStatus, setShopStatus] = useState(shopOpen)
     const [modalShow, setModalShow] = useState(false);
 
-   
 
     //THIS IS HOW YOU COMPARE TIME FROM A STRING COMING FROM BACKEND 
 
@@ -53,15 +52,15 @@ const ShopCard = props => {
     useEffect(() => {
         isShopOpen ? setShopStatus(shopOpen) : setShopStatus(shopClose)
 
-    },[isShopOpen])
+    }, [isShopOpen])
 
     return (
         <>
             <div className='d-flex justify-content-center column '>
                 <Card style={{ width: '48rem' }} className='m-3 shadow p-3 mb-3 bg-white rounded'>
                     <Card.Body style={{ boxShadow: "5px 5px 5px grey", display: "flex" }}>
-                        <div className='w-85'>
-                            <Card.Title className='title' style={{fontSize:"2rem",fontWeight:"700"}}>{props.name}</Card.Title>
+                        <div className='w-85' style={{ textAlign: 'center' }}>
+                            <Card.Title className='title' style={{ fontSize: "2rem", fontWeight: "700" }}>{props.name}</Card.Title>
                             <div className='d-flex row justify-content-evenly mb-4 details'>
                                 <div>
                                     <Card.Subtitle className="mt-3 text-muted" style={{ fontSize: "1.3rem" }}>Shop-type </Card.Subtitle>
@@ -86,11 +85,11 @@ const ShopCard = props => {
 
                             <div className='mx-auto d-flex justify-content-between'>
 
-                                <Button variant="danger w-50 hover-delete shadow-none" style={{ marginRight: "1rem", fontSize: "1.3rem", fontWeight: "700", fontFamily: "sans-serif" }} onClick={() => { props.delete(props.id) }}><AiFillDelete className="pb-1 f-1" />Delete</Button>
+                                <Button variant="danger w-50 hover-delete shadow-none" style={{ marginRight: "1rem", fontSize: "1.3rem", fontWeight: "700", fontFamily: "sans-serif", display: localStorage.userEmail ? 'block' : 'none' }} onClick={() => { props.delete(props.id) }}><AiFillDelete className="pb-1 f-1" />Delete</Button>
 
-                                <Button variant="primary w-50 hover-edit shadow-none" style={{ fontSize: "1.3rem", fontWeight: "700", fontFamily: "sans-serif" }} onClick={() => setModalShow(true)}><AiFillEdit className="pb-1 f-1" />Edit</Button>
+                                <Button variant="primary w-50 hover-edit shadow-none" style={{ fontSize: "1.3rem", fontWeight: "700", fontFamily: "sans-serif", display: localStorage.userEmail ? 'block' : 'none' }} onClick={() => setModalShow(true)}><AiFillEdit className="pb-1 f-1" />Edit</Button>
 
-                                <MyVerticallyCenteredModal  id = {props.id} show={modalShow} onHide={() => setModalShow(false)} name = {props.name} category = {props.category} area = {props.location} opening = {props.opening} closing = {props.closing}/>
+                                <MyVerticallyCenteredModal id={props.id} show={modalShow} onHide={() => setModalShow(false)} name={props.name} category={props.category} area={props.location} opening={props.opening} closing={props.closing} />
                             </div>
                         </div>
                         <div className="status-lp">

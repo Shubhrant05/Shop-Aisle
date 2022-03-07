@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background: #242582;
+  /* background: #242582; */
+  /* background-image: url('../src/Assets/BackgroundPic.jpg'); */
 }
 
 .App-logo {

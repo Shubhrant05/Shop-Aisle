@@ -19,7 +19,8 @@ const addShop = async (req, res, next) => {
     area: req.body.area,
     category: req.body.category,
     opening: req.body.opening,
-    closing: req.body.closing
+    closing: req.body.closing,
+    creator: req.body.creator
   });
 
   const result = await newShop.save();

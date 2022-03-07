@@ -8,8 +8,8 @@ import shop3 from '../Assets/shop3.jpg'
 import shop4 from '../Assets/shop4.jpg'
 export default function App() {
     return (
-        <div className = "mx-auto hero-bg" style={{ display: 'block',  padding: 30 }}>
-            
+        <div className="mx-auto hero-bg" style={{ display: 'block', padding: 30 }}>
+
             <Carousel>
                 <Carousel.Item interval={2000}>
                     <img

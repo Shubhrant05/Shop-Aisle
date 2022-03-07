@@ -7,7 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #242582;
+  /* background-color: #242582; */
+   background-image: url('../src/Assets/BackgroundPic.jpg');
+   background-attachment: fixed;
+  
 }
 
 code {

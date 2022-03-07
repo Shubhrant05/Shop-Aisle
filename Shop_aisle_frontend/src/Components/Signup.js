@@ -3,7 +3,7 @@ import signup from '../Assets/signup.svg'
 import SignupForm from './Forms/SignupForm'
 const Signup = () => {
     return (
-        <div style={{background:"#242582"}}>
+        <div>
             <div className='signup-logo ml-2'>
                 Shop Aisle
             </div>
@@ -12,7 +12,7 @@ const Signup = () => {
                     <img src={signup} alt="signup pic" />
                 </div>
                 <div className='signup-form'>
-                    <SignupForm/>
+                    <SignupForm />
                 </div>
             </div>
         </div>
