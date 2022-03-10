@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import ShopCard from './ShopCard'
-import Navigation from './Navigation'
 import HeroSection from './HeroSection'
 import Nav from './Nav'
 // import backpic from '../Assets/BackgroundPic.jpg'
@@ -20,8 +19,8 @@ const Content = () => {
   return (
 
     <div style={{ height: '100%', width: '100%', backgroundImage: "url('../Assets/BackgroundPic.jpg')" }}>
-      <Navigation />
-      {/* <Nav/> */}
+      {/* <Navigation /> */}
+      <Nav/>
       <HeroSection />
       {
         data.map((shop) => {

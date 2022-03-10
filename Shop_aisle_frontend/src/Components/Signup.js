@@ -1,12 +1,11 @@
 import React from 'react'
 import signup from '../Assets/signup.svg'
 import SignupForm from './Forms/SignupForm'
+import Nav from './Nav'
 const Signup = () => {
     return (
         <div>
-            <div className='signup-logo ml-2'>
-                Shop Aisle
-            </div>
+            <Nav/>
             <div className='d-flex signup-page'>
                 <div className='signup'>
                     <img src={signup} alt="signup pic" />

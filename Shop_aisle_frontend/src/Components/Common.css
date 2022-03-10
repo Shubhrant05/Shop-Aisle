@@ -43,6 +43,30 @@
   color: black;
 }
 
+.nav-btn{
+  border: 0px;
+  background: none;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 0.7rem;
+  margin-left: 1rem;
+  display: block;
+}
+
+.hamburger{
+  color: white;
+  font-size:3rem;
+  
+}
+
+.nav-btn:hover{
+  color: rgb(255, 81, 81);
+}
+
+.my-nav-bar{
+  position: fixed;
+}
+
 .status-lp {
   display: none;
 }
@@ -89,6 +113,10 @@
   font-family: "Poppins", sans-serif;
   text-align: center;
   width: 100%;
+}
+
+.btngrp{
+  display: none;
 }
 
 .signup-page {
@@ -157,6 +185,13 @@
     font-size: 1.3rem;
   }
 
+  .hamburger-icon{
+    display: none;
+  }
+
+  .btngrp{
+    display: flex;
+  }
   .signup {
     display: flex;
     height: 90vh;
