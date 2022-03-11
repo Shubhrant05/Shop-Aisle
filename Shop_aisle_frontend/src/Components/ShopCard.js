@@ -23,9 +23,6 @@ const MyVerticallyCenteredModal = (props) => {
                     <EditshopForm id={props.id} name={props.name} category={props.category} area={props.area} opening={props.opening} closing={props.closing} onHide={props.onHide} />
                 </div>
             </Modal.Body>
-            {/* <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer> */}
         </Modal>
     );
 }
@@ -61,7 +58,7 @@ const ShopCard = props => {
                     <Card.Body style={{ boxShadow: "5px 5px 5px grey", display: "flex" }}>
                         <div className='w-85' style={{ textAlign: 'center' }}>
                             <Card.Title className='title' style={{ fontSize: "2rem", fontWeight: "700" }}>{props.name}</Card.Title>
-                            <Card.Subtitle className="mt-2 mb-3 text-muted" style={{ fontSize: "1.3rem" }}>{props.creator} </Card.Subtitle>
+                            <Card.Subtitle className="mt-2 mb-3 text-muted" style={{ fontSize: "1.3rem" }}><a href={`mailto:${props.creator}`}>{props.creator}</a> </Card.Subtitle>
                             <div className='d-flex row justify-content-evenly mb-4 details'>
                                 <div>
                                     <Card.Subtitle className="mt-3 text-muted" style={{ fontSize: "1.3rem" }}>Shop-type </Card.Subtitle>
