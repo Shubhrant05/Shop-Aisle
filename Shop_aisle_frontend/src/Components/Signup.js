@@ -1,7 +1,7 @@
 import React from 'react'
 import signup from '../Assets/signup.svg'
 import SignupForm from './Forms/SignupForm'
-import Nav from './Nav'
+import {Nav} from './Nav'
 const Signup = () => {
     return (
         <div>

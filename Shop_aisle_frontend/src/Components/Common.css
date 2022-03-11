@@ -80,6 +80,10 @@
   width: 90%;
 }
 
+.w-80 {
+  width: 80%;
+}
+
 .details {
   flex-direction: column;
 }

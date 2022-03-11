@@ -1,6 +1,6 @@
 import React from 'react'
 import AddshopForm from './Forms/AddshopForm'
-import Nav from './Nav'
+import {Nav} from './Nav'
 const Addshop = props => {
     return (
         <div>

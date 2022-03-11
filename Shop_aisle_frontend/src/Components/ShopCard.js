@@ -61,6 +61,7 @@ const ShopCard = props => {
                     <Card.Body style={{ boxShadow: "5px 5px 5px grey", display: "flex" }}>
                         <div className='w-85' style={{ textAlign: 'center' }}>
                             <Card.Title className='title' style={{ fontSize: "2rem", fontWeight: "700" }}>{props.name}</Card.Title>
+                            <Card.Subtitle className="mt-2 mb-3 text-muted" style={{ fontSize: "1.3rem" }}>{props.creator} </Card.Subtitle>
                             <div className='d-flex row justify-content-evenly mb-4 details'>
                                 <div>
                                     <Card.Subtitle className="mt-3 text-muted" style={{ fontSize: "1.3rem" }}>Shop-type </Card.Subtitle>

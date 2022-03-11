@@ -7,7 +7,7 @@ import Signup from './Components/Signup';
 import Login from './Components/Login';
 import Addshop from './Components/Addshop'
 import LandingPage from './Components/LandingPage';
-import Nav from './Components/Nav';
+import {LoginNav} from './Components/Nav';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <Route path="/dashboard"
         element={
           <div className='App'>
-            <Nav />
+            <LoginNav />
             <HeroSection />
             <Content />
           </div>}

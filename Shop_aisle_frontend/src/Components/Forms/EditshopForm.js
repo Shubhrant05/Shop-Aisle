@@ -17,7 +17,7 @@ const EditshopForm = ({ id, stateAccess, onHide, name, category, closing, area, 
             url: `http://localhost:5000/api/shop/editShop/${id}`,
             data: values,
         }).then(() => console.log("Shop-edited")).catch(() => console.log("Error occured in editing shop"))
-
+        window.location.reload()
         navigate('/dashboard')
 
     }

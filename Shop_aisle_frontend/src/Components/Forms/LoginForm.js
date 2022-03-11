@@ -7,12 +7,14 @@ import * as Yup from 'yup'
 import Inputfield from './Inputfield'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import {Nav} from '../Nav'
 
 
 const LoginForm = () => {
 
     const navigate = useNavigate()
     const [passBtn, setPassBtn] = useState(false)
+    const [isLogin, setIsLogin] = useState(false)
 
     //   }
     const passBtnHandler = () => {
@@ -30,6 +32,7 @@ const LoginForm = () => {
                 console.log(res)
                 navigate('/dashboard')
                 localStorage.setItem('userEmail', values.email)
+                setIsLogin(true)
             }
             else {
                 console.log("error")
@@ -87,6 +90,10 @@ const LoginForm = () => {
 
                 }
             </Formik>
+            <div style={{display:'none'}}>
+                <Nav isLogin = {isLogin}/>
+             </div>
+            
         </div>
     )
 }

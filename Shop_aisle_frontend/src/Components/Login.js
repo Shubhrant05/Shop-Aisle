@@ -1,7 +1,7 @@
 import React from 'react'
 import signin from '../Assets/SignIn.svg'
 import LoginForm from './Forms/LoginForm'
-import Nav from './Nav'
+import {Nav} from './Nav'
 
 const Login = () => {
     return (
