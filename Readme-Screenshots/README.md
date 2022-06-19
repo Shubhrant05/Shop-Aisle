@@ -19,7 +19,7 @@ It has been quite a time now that I am learning and exploring the MERN stack. Bu
 
 <h2>SignUp Page</h2><br/>
 
-![Sign-Up Page]([Readme-Screenshots\SignUp-page.png "Signup page of Shop-Aisle"](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/EditPage.png))
+![Sign-Up Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/EditPage.png "Signup page of Shop-Aisle")
 
 <h2>Login Page</h2><br/>
 
