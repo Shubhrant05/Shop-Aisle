@@ -19,31 +19,30 @@ It has been quite a time now that I am learning and exploring the MERN stack. Bu
 
 <h2>SignUp Page</h2><br/>
 
-![Sign-Up Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/EditPage.png "Signup page of Shop-Aisle")
-
+![Sign-Up Page]( https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/SignUp-page.png "Signup page of Shop-Aisle")
 <h2>Login Page</h2><br/>
 
-![Log-In Page](Readme-Screenshots\LogIn-page.png "Login page of Shop-Aisle")
+![Log-In Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/LogIn-page.png "Login page of Shop-Aisle")
 
 <h2>Home Page </h2><br/>
 
 Picture-1 :
-![Home Page](Readme-Screenshots\Pic1.png "Home Page of Shop-Aisle")
+![Home Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/Pic1.png "Home Page of Shop-Aisle")
 Picture-2 :
-![Home Page](Readme-Screenshots\Pic2.png "Home Page of Shop-Aisle")
+![Home Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/Pic2.png "Home Page of Shop-Aisle")
 
 <h2>User-Dashboard : </h2><br/>
 
-![User Dashboard Page](Readme-Screenshots\UserDashboard.png "User Dashboard  of Shop-Aisle")
+![User Dashboard Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/UserDashboard.png "User Dashboard  of Shop-Aisle")
 
 <h2>Features : </h2><br/>
 <h3>Add Shop Page</h3><br/>
 
-![Add Shop Page](Readme-Screenshots\ShopAddPage.png "Add Shop page of Shop-Aisle")
+![Add Shop Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/ShopAddPage.png "Add Shop page of Shop-Aisle")
 
 <h3>Edit Shop Page</h3><br/>
 
-![Edit Shop Page](Readme-Screenshots\EditPage.png "Edit Shop page of Shop-Aisle")
+![Edit Shop Page](https://github.com/Shubhrant05/Shop-Aisle/blob/main/Readme-Screenshots/EditPage.png "Edit Shop page of Shop-Aisle")
 <br/>
 <h2>Instructions to use the project:</h2>
 <ul>
